@@ -1,9 +1,0 @@
-**/users/images/*
-
-**/users.json
-
-*.log
-*.env
-.DS_Store
-vendor/
-node_modules/
