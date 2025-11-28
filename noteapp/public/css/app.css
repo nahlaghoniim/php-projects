@@ -1,0 +1,212 @@
+/* ================================
+   Global Reset & Base Styling
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f4f5f7;
+    font-family: "Inter", sans-serif;
+    padding: 30px 15px;
+}
+
+/* Main Container */
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Title */
+.app-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* ================================
+   Create Note Form
+================================ */
+.note-form {
+    background: white;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.note-form input,
+.note-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #d0d0d0;
+    font-size: 15px;
+    transition: 0.2s border-color ease;
+}
+
+.note-form input:focus,
+.note-form textarea:focus {
+    border-color: #0077ff;
+    outline: none;
+}
+
+/* Primary Button */
+.btn-create {
+    background: #0077ff;
+    color: white;
+    padding: 12px;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s background ease;
+}
+
+.btn-create:hover {
+    background: #005dcc;
+}
+
+/* ================================
+   Notes List
+================================ */
+.notes-list {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.note-card {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    transition: 0.25s ease;
+}
+
+/* Header */
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* CLICKABLE TITLE */
+.note-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.note-title:hover {
+    color: #1D5E86;
+}
+
+/* Delete Button */
+.btn-close {
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #aaa;
+    transition: 0.2s ease;
+}
+
+.btn-close:hover {
+    color: #ff3b3b;
+}
+
+/* Note Text */
+.note-text {
+    color: #555;
+    line-height: 1.5;
+    font-size: 15px;
+    padding-bottom: 4px;
+}
+
+/* Date */
+.note-date {
+    font-size: 13px;
+    color: #777;
+}
+
+/* ================================
+   Update Form (Hidden by Default)
+================================ */
+.update-form {
+    display: none;               /* IMPORTANT → hidden until title clicked */
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Make input + textarea shrink nicely */
+.update-form input,
+.update-form textarea {
+    flex: 1;
+    min-height: 40px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    resize: vertical;
+}
+
+.btn-update {
+    background: #2196f3;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s background;
+    height: 40px;
+    white-space: nowrap;
+}
+
+.btn-update:hover {
+    background: #0b7dda;
+}
+
+/* ================================
+   Animations
+================================ */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 600px) {
+    .app-title { font-size: 26px; }
+    .note-card { padding: 16px; }
+
+    /* update form stacks vertically on small screens */
+    .update-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .update-form input, 
+    .update-form textarea, 
+    .update-form button {
+        width: 100%;
+    }
+}
